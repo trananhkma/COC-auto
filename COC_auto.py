@@ -18,8 +18,8 @@ Barbarian = {'coordinates': (280, 120), 'time': 20, 'space':1}
 Archer = {'coordinates': (450, 110), 'time': 25, 'space':1}
 Giant = {'coordinates': (600, 110), 'time': 2*60, 'space':5}
 
-
-barracks = {'quantity': 1, 'capacity': 30}
+# quantity and capacity train of barracks
+barracks = {'quantity': 2, 'capacity': 30}
 
 # slot in find match
 slot1 = (150, 200)
