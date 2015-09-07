@@ -19,7 +19,7 @@ Archer = {'name': 'Archer', 'coordinates': (450, 110), 'time': 25, 'space':1}
 Giant = {'name': 'Giant', 'coordinates': (600, 110), 'time': 2*60, 'space':5}
 
 # quantity and capacity train of barracks
-barracks = {'quantity': 2, 'capacity': 30}
+barracks = {'quantity': 3, 'capacity': 30}
 
 # slot in find match
 slot1 = (150, 200)
