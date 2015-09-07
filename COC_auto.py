@@ -14,12 +14,17 @@ left = (100, 105)
 find_match = (300, 170)
 
 # coordinates, build time, house space
-Barbarian = {'coordinates': (280, 120), 'time': 20, 'space':1}
-Archer = {'coordinates': (450, 110), 'time': 25, 'space':1}
-Giant = {'coordinates': (600, 110), 'time': 2*60, 'space':5}
+Barbarian = {'name': 'Barbarian', 'coordinates': (280, 120), 'time': 20, 'space':1}
+Archer = {'name': 'Archer', 'coordinates': (450, 110), 'time': 25, 'space':1}
+Giant = {'name': 'Giant', 'coordinates': (600, 110), 'time': 2*60, 'space':5}
 
+<<<<<<< HEAD
 # quantity and capacity train of barracks
 barracks = {'quantity': 2, 'capacity': 30}
+=======
+
+barracks = {'quantity': 3, 'capacity': 30}
+>>>>>>> update train
 
 # slot in find match
 slot1 = (150, 200)
@@ -62,6 +67,7 @@ def buy_armys(*armys):
                 click(left)
                 sleep(0.2)
                 buy_army(i[0], i[1])
+            print 'Training {} {}'.format(i[1], i[0]['name'])
             click(attack)
             keep_alive(i[0]['time'] * i[1])
         else:
@@ -77,9 +83,16 @@ def deploy_troops():
     pass
 
 
+def train(*armys):
+    buy_armys(*armys)
+    print 'Trained'
+    print 'Safe time:'
+    keep_alive(120*60)
+   
+
 if __name__ == '__main__':
     while True:
-        buy_armys((Barbarian, 100))
+        train((Giant, 3), (Archer, 8))
         # click(attack)
         # sleep(0.2)
         # click(find_match)
