@@ -62,7 +62,7 @@ def buy_armys(*armys):
                 click(left)
                 sleep(0.2)
                 buy_army(i[0], i[1])
-            print 'Training {} {}'.format(i[1], i[0]['name'])
+            print 'Training {} {}'.format(i[1]*barracks['quantity'], i[0]['name'])
             click(attack)
             keep_alive(i[0]['time'] * i[1])
         else:
