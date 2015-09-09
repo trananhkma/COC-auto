@@ -14,12 +14,18 @@ left = (100, 105)
 find_match = (300, 170)
 
 # coordinates, build time, house space
-Barbarian = {'name': 'Barbarian', 'coordinates': (280, 120), 'time': 20, 'space':1}
-Archer = {'name': 'Archer', 'coordinates': (450, 110), 'time': 25, 'space':1}
-Giant = {'name': 'Giant', 'coordinates': (600, 110), 'time': 2*60, 'space':5}
+Barbarian = {'name': 'Barbarian', 'coordinates': (280, 120), 'time': 20, 'space': 1}
+Archer = {'name': 'Archer', 'coordinates': (450, 110), 'time': 25, 'space': 1}
+Giant = {'name': 'Giant', 'coordinates': (600, 110), 'time': 2*60, 'space': 5}
+Goblin = {'name': 'Goblin', 'coordinates': (720, 110), 'time': 30, 'space': 1}
+Balloon = {'name': 'Balloon', 'coordinates': (280, 160), 'time': 8*60, 'space': 5}
+Wizard = {'name': 'Wizard', 'coordinates': (450, 160), 'time': 8*60, 'space': 4}
+Healer = {'name': 'Healer', 'coordinates': (600, 160), 'time': 15*60, 'space': 14}
+Dragon = {'name': 'Dragon', 'coordinates': (720, 160), 'time': 30*60, 'space': 16}
+
 
 # quantity and capacity train of barracks
-barracks = {'quantity': 3, 'capacity': 30}
+barracks = {'quantity': 3, 'capacity': 40}
 
 # slot in find match
 slot1 = (150, 200)
@@ -87,8 +93,7 @@ def train(*armys):
 
 if __name__ == '__main__':
     while True:
-        train((Giant, 3), (Archer, 8))
-        # click(attack)
+        train((Giant, 1), (Barbarian,18))
         # sleep(0.2)
         # click(find_match)
         # sleep(5)
