@@ -23,6 +23,8 @@ Wizard = {'name': 'Wizard', 'coordinates': (450, 160), 'time': 8*60, 'space': 4}
 Healer = {'name': 'Healer', 'coordinates': (600, 160), 'time': 15*60, 'space': 14}
 Dragon = {'name': 'Dragon', 'coordinates': (720, 160), 'time': 30*60, 'space': 16}
 
+TRAIN = (Goblin, 30),
+
 
 # quantity and capacity train of barracks
 barracks = {'quantity': 3, 'capacity': 40}
@@ -57,7 +59,7 @@ def buy_army(name, quantity):
         sleep(0.1)
 
 
-def buy_armys(*armys):
+def buy_armys(armys):
     # (name, quantity)
     for i in armys:
         click(army)
@@ -84,16 +86,14 @@ def deploy_troops():
     pass
 
 
-def train(*armys):
-    buy_armys(*armys)
+def train(armys):
+    buy_armys(armys)
     print 'Trained'
-    print 'Safe time:'
-    keep_alive(120*60)
    
 
 if __name__ == '__main__':
     while True:
-        train((Giant, 1), (Barbarian,18))
+        train(TRAIN)
         # sleep(0.2)
         # click(find_match)
         # sleep(5)
