@@ -12,6 +12,7 @@ attack = (50, 200)
 army = (50, 170)
 left = (100, 105)
 find_match = (300, 170)
+att = ()
 home = ()
 
 # coordinates, build time, house space
@@ -89,7 +90,7 @@ def buy_armys(armys):
 def deploy_troops():
     count = barracks['capacity']
     while count > 0:
-        click(put)
+        click(att)
         sleep(0.1)
         count -= 1
     sleep(90)
