@@ -12,6 +12,7 @@ attack = (50, 200)
 army = (50, 170)
 left = (100, 105)
 find_match = (300, 170)
+home = ()
 
 # coordinates, build time, house space
 Barbarian = {'name': 'Barbarian', 'coordinates': (280, 120), 'time': 20, 'space': 1}
@@ -23,11 +24,11 @@ Wizard = {'name': 'Wizard', 'coordinates': (450, 160), 'time': 8*60, 'space': 4}
 Healer = {'name': 'Healer', 'coordinates': (600, 160), 'time': 15*60, 'space': 14}
 Dragon = {'name': 'Dragon', 'coordinates': (720, 160), 'time': 30*60, 'space': 16}
 
-TRAIN = (Goblin, 30),
+TRAIN = (Goblin, 80),
 
 
 # quantity and capacity train of barracks
-barracks = {'quantity': 3, 'capacity': 40}
+barracks = {'quantity': 1, 'capacity': 40}
 
 # slot in find match
 slot1 = (150, 200)
@@ -70,20 +71,30 @@ def buy_armys(armys):
                 click(left)
                 sleep(0.2)
                 buy_army(i[0], i[1])
+                sleep(0.2)
             print 'Training {} {}'.format(i[1]*barracks['quantity'], i[0]['name'])
             click(attack)
             keep_alive(i[0]['time'] * i[1])
         else:
+            click(attack)
+            sleep(0.2)
             allow = barracks['capacity'] / i[0]['space']
             while spaces > barracks['capacity']:
-                buy_armys((i[0], allow))
+                buy_armys(((i[0], allow),))
                 spaces -= allow
-            buy_armys((i[0], spaces / i[0]['space']))
+            buy_armys((i[0], spaces / i[0]['space']),)
             keep_alive(i[0]['time'] * (spaces / i[0]['space']))
 
 
 def deploy_troops():
-    pass
+    count = barracks['capacity']
+    while count > 0:
+        click(put)
+        sleep(0.1)
+        count -= 1
+    sleep(90)
+    click(home)
+    sleep(1)
 
 
 def train(armys):
@@ -92,8 +103,9 @@ def train(armys):
    
 
 if __name__ == '__main__':
-    while True:
+   while True:
         train(TRAIN)
+        # click(attack)
         # sleep(0.2)
         # click(find_match)
         # sleep(5)
