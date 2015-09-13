@@ -25,11 +25,13 @@ Wizard = {'name': 'Wizard', 'coordinates': (450, 160), 'time': 8*60, 'space': 4}
 Healer = {'name': 'Healer', 'coordinates': (600, 160), 'time': 15*60, 'space': 14}
 Dragon = {'name': 'Dragon', 'coordinates': (720, 160), 'time': 30*60, 'space': 16}
 
-TRAIN = (Goblin, 80),
+TRAIN = (Goblin, 45),
+TRAIN2 = (Giant, 4), (Archer, 7)
+TRAIN3 = (Balloon, 2), (Giant, 2), (Goblin,9)
 
 
 # quantity and capacity train of barracks
-barracks = {'quantity': 1, 'capacity': 40}
+barracks = {'quantity': 3, 'capacity': 45}
 
 # slot in find match
 slot1 = (150, 200)
@@ -58,7 +60,7 @@ def keep_alive(wait_time):
 def buy_army(name, quantity):
     for j in xrange(quantity):
         click(name['coordinates'])
-        sleep(0.1)
+        sleep(0.02)
 
 
 def buy_armys(armys):
@@ -104,8 +106,9 @@ def train(armys):
    
 
 if __name__ == '__main__':
-   while True:
+    while True:
         train(TRAIN)
+        keep_alive(5*60)
         # click(attack)
         # sleep(0.2)
         # click(find_match)
